@@ -115,7 +115,7 @@ public class BasePage {
 		return driver.findElements(By.xpath(xpathLocator));
 	}
 
-	public void clickElement(WebDriver driver, String xpathLocator) {
+	public void clickToElement(WebDriver driver, String xpathLocator) {
 		getWebElement(driver, xpathLocator).click();
 	}
 

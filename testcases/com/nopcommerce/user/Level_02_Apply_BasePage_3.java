@@ -33,10 +33,10 @@ public class Level_02_Apply_BasePage_3 extends BasePage {
 	@Test
 	public void Register_01_Empty_Data() {
 		waitForElementClickable(driver, "//a[@class='ico-register']");
-		clickElement(driver, "//a[@class='ico-register']");
+		clickToElement(driver, "//a[@class='ico-register']");
 
 		waitForElementClickable(driver, "//button[@id='register-button']");
-		clickElement(driver, "//button[@id='register-button']");
+		clickToElement(driver, "//button[@id='register-button']");
 		Assert.assertEquals(getElementText(driver, "//span[@id='FirstName-error']"),
 				"First name is required.");
 
@@ -53,7 +53,7 @@ public class Level_02_Apply_BasePage_3 extends BasePage {
 	@Test
 	public void Register_02_Invalid_Email() {
 		waitForElementClickable(driver, "//a[@class='ico-register']");
-		clickElement(driver, "//a[@class='ico-register']");
+		clickToElement(driver, "//a[@class='ico-register']");
 
 		senKeyToElement(driver, "//input[@id='FirstName']", "Automation");
 		senKeyToElement(driver, "//input[@id='LastName']", "FC");
@@ -62,7 +62,7 @@ public class Level_02_Apply_BasePage_3 extends BasePage {
 		senKeyToElement(driver, "//input[@id='ConfirmPassword']", "123456");
 
 		waitForElementClickable(driver, "//button[@id='register-button']");
-		clickElement(driver, "//button[@id='register-button']");
+		clickToElement(driver, "//button[@id='register-button']");
 
 		Assert.assertEquals(getElementText(driver, "//span[@id='Email-error']"), "Wrong email");
 
@@ -71,7 +71,7 @@ public class Level_02_Apply_BasePage_3 extends BasePage {
 	@Test
 	public void Register_03_Success() {
 		waitForElementClickable(driver, "//a[@class='ico-register']");
-		clickElement(driver, "//a[@class='ico-register']");
+		clickToElement(driver, "//a[@class='ico-register']");
 
 		senKeyToElement(driver, "//input[@id='FirstName']", "Automation");
 		senKeyToElement(driver, "//input[@id='LastName']", "FC");
@@ -80,18 +80,18 @@ public class Level_02_Apply_BasePage_3 extends BasePage {
 		senKeyToElement(driver, "//input[@id='ConfirmPassword']", "123456");
 
 		waitForElementClickable(driver, "//button[@id='register-button']");
-		clickElement(driver, "//button[@id='register-button']");
+		clickToElement(driver, "//button[@id='register-button']");
 
 		Assert.assertEquals(getElementText(driver, "//div[@class='result']"), "Your registration completed");
 
 		waitForElementClickable(driver, "//a[@class='ico-logout']");
-		clickElement(driver, "//a[@class='ico-logout']");
+		clickToElement(driver, "//a[@class='ico-logout']");
 	}
 
 	@Test
 	public void Register_04_Exist_Email() {
 		waitForElementClickable(driver, "//a[@class='ico-register']");
-		clickElement(driver, "//a[@class='ico-register']");
+		clickToElement(driver, "//a[@class='ico-register']");
 
 		senKeyToElement(driver, "//input[@id='FirstName']", "Automation");
 		senKeyToElement(driver, "//input[@id='LastName']", "FC");
@@ -100,7 +100,7 @@ public class Level_02_Apply_BasePage_3 extends BasePage {
 		senKeyToElement(driver, "//input[@id='ConfirmPassword']", "123456");
 
 		waitForElementClickable(driver, "//button[@id='register-button']");
-		clickElement(driver, "//button[@id='register-button']");
+		clickToElement(driver, "//button[@id='register-button']");
 
 		Assert.assertEquals(getElementText(driver, "//div[contains(@class, 'validation-summary-errors')]//li"),
 				"The specified email already exists");
@@ -110,7 +110,7 @@ public class Level_02_Apply_BasePage_3 extends BasePage {
 	@Test
 	public void Register_05_Password_Less_Than_6_Chars() {
 		waitForElementClickable(driver, "//a[@class='ico-register']");
-		clickElement(driver, "//a[@class='ico-register']");
+		clickToElement(driver, "//a[@class='ico-register']");
 
 		senKeyToElement(driver, "//input[@id='FirstName']", "Automation");
 		senKeyToElement(driver, "//input[@id='LastName']", "FC");
@@ -119,7 +119,7 @@ public class Level_02_Apply_BasePage_3 extends BasePage {
 		senKeyToElement(driver, "//input[@id='ConfirmPassword']", "12345");
 
 		waitForElementClickable(driver, "//button[@id='register-button']");
-		clickElement(driver, "//button[@id='register-button']");
+		clickToElement(driver, "//button[@id='register-button']");
 		Assert.assertEquals(getElementText(driver, "//span[@id='Password-error']"),
 				"Password must meet the following rules:\nmust have at least 6 characters");
 
@@ -128,7 +128,7 @@ public class Level_02_Apply_BasePage_3 extends BasePage {
 	@Test
 	public void Register_06_Invalid_Confirm_Password() {
 		waitForElementClickable(driver, "//a[@class='ico-register']");
-		clickElement(driver, "//a[@class='ico-register']");
+		clickToElement(driver, "//a[@class='ico-register']");
 
 		senKeyToElement(driver, "//input[@id='FirstName']", "Automation");
 		senKeyToElement(driver, "//input[@id='LastName']", "FC");
@@ -137,7 +137,7 @@ public class Level_02_Apply_BasePage_3 extends BasePage {
 		senKeyToElement(driver, "//input[@id='ConfirmPassword']", "111111");
 
 		waitForElementClickable(driver, "//button[@id='register-button']");
-		clickElement(driver, "//button[@id='register-button']");
+		clickToElement(driver, "//button[@id='register-button']");
 		
 		Assert.assertEquals(getElementText(driver, "//span[@id='ConfirmPassword-error']"),
 				"The password and confirmation password do not match.");
