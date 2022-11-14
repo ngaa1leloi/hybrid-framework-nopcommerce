@@ -3,10 +3,10 @@
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.user.Level_03_Page_Object_02_Login" />
+			<class name="com.nopcommerce.user.Level_05_Page_Factory" />
 		</classes>
 	</test> <!-- Test -->
-	<test name="Run on Chrome">
+	<!--<test name="Run on Chrome">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.nopcommerce.user.Level_03_Page_Object_02_Login" />
@@ -23,5 +23,5 @@
 		<classes>
 			<class name="com.nopcommerce.user.Level_03_Page_Object_02_Login" />
 		</classes>
-	</test>
+	</test>-->
 </suite> <!-- Suite -->
