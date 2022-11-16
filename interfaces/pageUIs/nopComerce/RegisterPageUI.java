@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.nopComerce;
 
 import org.testng.Assert;
 

@@ -1,9 +1,9 @@
-package pageObjects;
+package pageObjects.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.RegisterPageUI;
+import pageUIs.nopComerce.RegisterPageUI;
 
 public class RegisterPageObject extends BasePage {
 	private WebDriver driver;
@@ -47,7 +47,7 @@ public class RegisterPageObject extends BasePage {
 		senKeyToElement(driver, RegisterPageUI.FIRST_NAME_TEXTBOX, firstName);
 	}
 
-	public void inputToFirstLastNamebox(String lastName) {
+	public void inputToLastNameTextbox(String lastName) {
 		waitForElementVisible(driver, RegisterPageUI.LAST_NAME_TEXTBOX);
 		senKeyToElement(driver, RegisterPageUI.LAST_NAME_TEXTBOX, lastName);
 	}
@@ -74,10 +74,10 @@ public class RegisterPageObject extends BasePage {
 		return getElementText(driver, RegisterPageUI.REGISTER_SUCCESS_MESSAGE);
 	}
 
-	public void clickToLogoutButton() {
+	public HomePageObject clickToLogoutButton() {
 		waitForElementClickable(driver, RegisterPageUI.LOGOUT_LINK);
 		clickToElement(driver, RegisterPageUI.LOGOUT_LINK);
-
+		return PageGeneratorManager.getHomePage(driver);
 	}
 
 	public String getErrorExistingEmailMessage() {

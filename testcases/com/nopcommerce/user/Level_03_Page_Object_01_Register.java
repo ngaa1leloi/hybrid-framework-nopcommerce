@@ -10,8 +10,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import pageObjects.HomePageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.nopCommerce.HomePageObject;
+import pageObjects.nopCommerce.RegisterPageObject;
 
 public class Level_03_Page_Object_01_Register {
 	private WebDriver driver;
@@ -62,7 +62,7 @@ public class Level_03_Page_Object_01_Register {
 
 		System.out.println("Register_02 - Step 02: Input to required fields");
 		registerPage.inputToFirstNameTextbox(firstName);
-		registerPage.inputToFirstLastNamebox(lastName);
+		registerPage.inputToLastNameTextbox(lastName);
 		registerPage.inputToEmailTextbox("abc");
 		registerPage.inputToPasswordTextbox(password);
 		registerPage.inputToConfirmPasswordTextbox("password");
@@ -83,7 +83,7 @@ public class Level_03_Page_Object_01_Register {
 
 		System.out.println("Register_03 - Step 02: Input to required fields");
 		registerPage.inputToFirstNameTextbox(firstName);
-		registerPage.inputToFirstLastNamebox(lastName);
+		registerPage.inputToLastNameTextbox(lastName);
 		registerPage.inputToEmailTextbox(emailAddress);
 		registerPage.inputToPasswordTextbox("password");
 		registerPage.inputToConfirmPasswordTextbox("password");
@@ -107,7 +107,7 @@ public class Level_03_Page_Object_01_Register {
 
 		System.out.println("Register_04 - Step 02: Input to required fields");
 		registerPage.inputToFirstNameTextbox(firstName);
-		registerPage.inputToFirstLastNamebox(lastName);
+		registerPage.inputToLastNameTextbox(lastName);
 		registerPage.inputToEmailTextbox(emailAddress);
 		registerPage.inputToPasswordTextbox("password");
 		registerPage.inputToConfirmPasswordTextbox("password");
@@ -128,7 +128,7 @@ public class Level_03_Page_Object_01_Register {
 
 		System.out.println("Register_05 - Step 02: Input to required fields");
 		registerPage.inputToFirstNameTextbox(firstName);
-		registerPage.inputToFirstLastNamebox(lastName);
+		registerPage.inputToLastNameTextbox(lastName);
 		registerPage.inputToEmailTextbox(emailAddress);
 		registerPage.inputToPasswordTextbox("12345");
 		registerPage.inputToConfirmPasswordTextbox("12345");
@@ -150,7 +150,7 @@ public class Level_03_Page_Object_01_Register {
 
 		System.out.println("Register_06 - Step 02: Input to required fields");
 		registerPage.inputToFirstNameTextbox(firstName);
-		registerPage.inputToFirstLastNamebox(lastName);
+		registerPage.inputToLastNameTextbox(lastName);
 		registerPage.inputToEmailTextbox(emailAddress);
 		registerPage.inputToPasswordTextbox("password");
 		registerPage.inputToConfirmPasswordTextbox("111111");

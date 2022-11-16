@@ -1,10 +1,10 @@
-package pageObjects;
+package pageObjects.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.HomePageUI;
-import pageUIs.LoginPageUI;
+import pageUIs.nopComerce.HomePageUI;
+import pageUIs.nopComerce.LoginPageUI;
 
 public class HomePageObject extends BasePage {
 	private WebDriver driver;
@@ -19,15 +19,20 @@ public class HomePageObject extends BasePage {
 
 	}
 
-	public void clickToLoginLink() {
+	public LoginPageObject clickToLoginLink() {
 		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
 		clickToElement(driver, HomePageUI.LOGIN_LINK);
-
+		return PageGeneratorManager.getLoginPage(driver);
 	}
 
 	public boolean isMyAccountLinkDisplayed() {
 		waitForElementVisible(driver, HomePageUI.MY_ACCOUNT_LINK);
 		return isEmlementDispayed(driver, HomePageUI.MY_ACCOUNT_LINK);
+	}
+	
+	public MyAccountPageObject clickToMyAccountLink() {
+		waitForElementClickable(driver, HomePageUI.MY_ACCOUNT_LINK);
+		return PageGeneratorManager.getMyAccountPage(driver);
 	}
 
 }

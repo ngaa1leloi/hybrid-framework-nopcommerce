@@ -9,8 +9,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.HomePageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.nopCommerce.HomePageObject;
+import pageObjects.nopCommerce.RegisterPageObject;
 
 public class Level_04_Multiple_Broswer extends BaseTest {
 	private WebDriver driver;
@@ -57,7 +57,7 @@ public class Level_04_Multiple_Broswer extends BaseTest {
 
 		System.out.println("Register_02 - Step 02: Input to required fields");
 		registerPage.inputToFirstNameTextbox(firstName);
-		registerPage.inputToFirstLastNamebox(lastName);
+		registerPage.inputToLastNameTextbox(lastName);
 		registerPage.inputToEmailTextbox("abc");
 		registerPage.inputToPasswordTextbox(password);
 		registerPage.inputToConfirmPasswordTextbox("password");
@@ -78,7 +78,7 @@ public class Level_04_Multiple_Broswer extends BaseTest {
 
 		System.out.println("Register_03 - Step 02: Input to required fields");
 		registerPage.inputToFirstNameTextbox(firstName);
-		registerPage.inputToFirstLastNamebox(lastName);
+		registerPage.inputToLastNameTextbox(lastName);
 		registerPage.inputToEmailTextbox(emailAddress);
 		registerPage.inputToPasswordTextbox("password");
 		registerPage.inputToConfirmPasswordTextbox("password");
@@ -102,7 +102,7 @@ public class Level_04_Multiple_Broswer extends BaseTest {
 
 		System.out.println("Register_04 - Step 02: Input to required fields");
 		registerPage.inputToFirstNameTextbox(firstName);
-		registerPage.inputToFirstLastNamebox(lastName);
+		registerPage.inputToLastNameTextbox(lastName);
 		registerPage.inputToEmailTextbox(emailAddress);
 		registerPage.inputToPasswordTextbox("password");
 		registerPage.inputToConfirmPasswordTextbox("password");
@@ -123,7 +123,7 @@ public class Level_04_Multiple_Broswer extends BaseTest {
 
 		System.out.println("Register_05 - Step 02: Input to required fields");
 		registerPage.inputToFirstNameTextbox(firstName);
-		registerPage.inputToFirstLastNamebox(lastName);
+		registerPage.inputToLastNameTextbox(lastName);
 		registerPage.inputToEmailTextbox(emailAddress);
 		registerPage.inputToPasswordTextbox("12345");
 		registerPage.inputToConfirmPasswordTextbox("12345");
@@ -145,7 +145,7 @@ public class Level_04_Multiple_Broswer extends BaseTest {
 
 		System.out.println("Register_06 - Step 02: Input to required fields");
 		registerPage.inputToFirstNameTextbox(firstName);
-		registerPage.inputToFirstLastNamebox(lastName);
+		registerPage.inputToLastNameTextbox(lastName);
 		registerPage.inputToEmailTextbox(emailAddress);
 		registerPage.inputToPasswordTextbox("password");
 		registerPage.inputToConfirmPasswordTextbox("111111");

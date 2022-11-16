@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite parallel="false" name="NopCommerce">
+<suite parallel="false" name="LiveGuru">
 	<test name="Run on Chrome">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="com.nopcommerce.user.Level_06_Page_Generator_Manager_I" />
+			<class name="com.liveguru.user.User_01_Register" />
 		</classes>
 	</test>
 	<!-- Test -->
