@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import commons.BaseTest;
 import pageObjects.nopCommerce.HomePageObject;
 import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.MyAccountPageObject;
+import pageObjects.nopCommerce.CustomerInforPageObject;
 import pageObjects.nopCommerce.PageGeneratorManager;
 import pageObjects.nopCommerce.RegisterPageObject;
 
@@ -20,7 +20,7 @@ public class Level_06_Page_Generator_Manager_I extends BaseTest {
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
-	private MyAccountPageObject myAccountPage;
+	private CustomerInforPageObject myAccountPage;
 	private String invalidEmail, notFoundEmail, existingEmail, firstName, lastName, password;
 
 	@Parameters("browser")
@@ -30,11 +30,12 @@ public class Level_06_Page_Generator_Manager_I extends BaseTest {
 		
 		homePage = PageGeneratorManager.getHomePage(driver);
 
-		invalidEmail = "abc";
+		invalidEmail = "John";
 		notFoundEmail = "a123@gmail.vn";
-		existingEmail = "abc" + genarateRanomNumber() + "@mail.vn";
-		firstName = "Automation";
-		lastName = "FC";
+		//existingEmail = "abc" + genarateRanomNumber() + "@mail.vn";
+		existingEmail= "johnson112@mail.vn";
+		firstName = "John";
+		lastName = "Son";
 		password = "123456";
 		System.out.println("Pre-Condition - Step 01: Click to Register link");
 		homePage.clickToRegisterLink();
@@ -126,8 +127,8 @@ public class Level_06_Page_Generator_Manager_I extends BaseTest {
 	public void Login_06_Valid_Email_Password() {
 		loginPage = homePage.clickToLoginLink();
 
-		loginPage.inputToEmailTextbox("a1@mail.vn");
-		loginPage.inputToPasswordTextbox("123456");
+		loginPage.inputToEmailTextbox(existingEmail);
+		loginPage.inputToPasswordTextbox(password);
 
 		homePage = loginPage.clickToLoginButton();
 

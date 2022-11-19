@@ -125,7 +125,7 @@ public class Level_03_Page_Object_02_Login extends BaseTest {
 
 	}
 
-	//@Test
+	@Test
 	public void Login_06_Valid_Email_Password() {
 		homePage.clickToLoginLink();
 		loginPage = new LoginPageObject(driver);

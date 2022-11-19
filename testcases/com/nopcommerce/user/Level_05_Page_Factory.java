@@ -123,7 +123,7 @@ public class Level_05_Page_Factory extends BaseTest {
 
 	}
 
-	//@Test
+	@Test
 	public void Login_06_Valid_Email_Password() {
 		homePage.clickToLoginLink();
 		loginPage = new LoginPageObject(driver);

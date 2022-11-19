@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.server.handler.MaximizeWindow;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -44,6 +45,7 @@ public class BaseTest {
 		} else {
 			throw new RuntimeException("Browser name invalid");
 		}
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
 
