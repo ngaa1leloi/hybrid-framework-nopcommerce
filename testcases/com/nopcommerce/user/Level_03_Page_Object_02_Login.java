@@ -9,15 +9,15 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.RegisterPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 public class Level_03_Page_Object_02_Login extends BaseTest {
 	private WebDriver driver;
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
-	private LoginPageObject loginPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
+	private UserLoginPageObject loginPage;
 	private String invalidEmail, notFoundEmail, existingEmail, firstName, lastName, password;
 
 	@Parameters("browser")
@@ -25,7 +25,7 @@ public class Level_03_Page_Object_02_Login extends BaseTest {
 	public void beforeClass(String browserName) {
 		driver = getDriverBrowser(browserName);
 		
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 
 		invalidEmail = "abc";
 		notFoundEmail = "a123@gmail.vn";
@@ -35,7 +35,7 @@ public class Level_03_Page_Object_02_Login extends BaseTest {
 		password = "123456";
 		System.out.println("Pre-Condition - Step 01: Click to Register link");
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		System.out.println("Pre-Condition - Step 02: Input to required fields");
 		registerPage.inputToFirstNameTextbox(firstName);
@@ -52,7 +52,7 @@ public class Level_03_Page_Object_02_Login extends BaseTest {
 
 		System.out.println("Pre-Condition - Step 05: Click to Logout button");
 		registerPage.clickToLogoutButton();
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 
 	}
 
@@ -60,7 +60,7 @@ public class Level_03_Page_Object_02_Login extends BaseTest {
 	public void Login_01_Empty_Data() {
 
 		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 
 		loginPage.clickToLoginButton();
 
@@ -71,7 +71,7 @@ public class Level_03_Page_Object_02_Login extends BaseTest {
 	public void Login_02_Invalid_Email() {
 
 		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 
 		loginPage.inputToEmailTextbox(invalidEmail);
 
@@ -84,7 +84,7 @@ public class Level_03_Page_Object_02_Login extends BaseTest {
 	@Test
 	public void Login_03_Email_Not_Found() {
 		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 
 		loginPage.inputToEmailTextbox(notFoundEmail);
 
@@ -98,7 +98,7 @@ public class Level_03_Page_Object_02_Login extends BaseTest {
 	@Test
 	public void Login_04_Existing_Email_Empty_Password() {
 		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 
 		loginPage.inputToEmailTextbox(existingEmail);
 		loginPage.inputToPasswordTextbox("");
@@ -113,7 +113,7 @@ public class Level_03_Page_Object_02_Login extends BaseTest {
 	@Test
 	public void Login_05_Existing_Email_Incorrect_Password() {
 		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 
 		loginPage.inputToEmailTextbox(existingEmail);
 		loginPage.inputToPasswordTextbox("111111");
@@ -128,13 +128,13 @@ public class Level_03_Page_Object_02_Login extends BaseTest {
 	@Test
 	public void Login_06_Valid_Email_Password() {
 		homePage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 
 		loginPage.inputToEmailTextbox(existingEmail);
 		loginPage.inputToPasswordTextbox(password);
 
 		loginPage.clickToLoginButton();
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 
 		Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
 

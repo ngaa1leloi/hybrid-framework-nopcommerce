@@ -1,4 +1,4 @@
-package pageUIs.nopComerce;
+package pageUIs.nopComerce.user;
 
 public class BasePageUI {
 	public static final String PAGE_TITLE ="//div[@class='page-title']/h1";

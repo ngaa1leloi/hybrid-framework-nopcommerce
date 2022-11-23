@@ -9,18 +9,18 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.CustomerInforPageObject;
-import pageObjects.nopCommerce.PageGeneratorManager;
-import pageObjects.nopCommerce.RegisterPageObject;
+import commons.PageGeneratorManager;
+import pageObjects.nopCommerce.user.UserCustomerInforPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 public class Level_06_Page_Generator_Manager_I extends BaseTest {
 	private WebDriver driver;
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
-	private LoginPageObject loginPage;
-	private CustomerInforPageObject myAccountPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
+	private UserLoginPageObject loginPage;
+	private UserCustomerInforPageObject myAccountPage;
 	private String invalidEmail, notFoundEmail, existingEmail, firstName, lastName, password;
 
 	@Parameters("browser")
@@ -28,7 +28,7 @@ public class Level_06_Page_Generator_Manager_I extends BaseTest {
 	public void beforeClass(String browserName) {
 		driver = getDriverBrowser(browserName);
 		
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 
 		invalidEmail = "John";
 		notFoundEmail = "a123@gmail.vn";
@@ -39,7 +39,7 @@ public class Level_06_Page_Generator_Manager_I extends BaseTest {
 		password = "123456";
 		System.out.println("Pre-Condition - Step 01: Click to Register link");
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		System.out.println("Pre-Condition - Step 02: Input to required fields");
 		registerPage.inputToFirstNameTextbox(firstName);

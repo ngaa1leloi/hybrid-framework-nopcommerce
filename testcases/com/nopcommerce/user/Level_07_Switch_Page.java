@@ -9,24 +9,24 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.nopCommerce.HomePageObject;
-import pageObjects.nopCommerce.LoginPageObject;
-import pageObjects.nopCommerce.MyProductReviewPageObject;
-import pageObjects.nopCommerce.AddressPageObject;
-import pageObjects.nopCommerce.CustomerInforPageObject;
-import pageObjects.nopCommerce.PageGeneratorManager;
-import pageObjects.nopCommerce.RegisterPageObject;
-import pageObjects.nopCommerce.RewardPointPageObject;
+import commons.PageGeneratorManager;
+import pageObjects.nopCommerce.user.UserAddressPageObject;
+import pageObjects.nopCommerce.user.UserCustomerInforPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserMyProductReviewPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
+import pageObjects.nopCommerce.user.UserRewardPointPageObject;
 
 public class Level_07_Switch_Page extends BaseTest {
 	private WebDriver driver;
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
-	private LoginPageObject loginPage;
-	private CustomerInforPageObject customerInforPage;
-	private AddressPageObject addressPage;
-	private MyProductReviewPageObject myProductReviewPage;
-	private RewardPointPageObject rewardPointPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
+	private UserLoginPageObject loginPage;
+	private UserCustomerInforPageObject customerInforPage;
+	private UserAddressPageObject addressPage;
+	private UserMyProductReviewPageObject myProductReviewPage;
+	private UserRewardPointPageObject rewardPointPage;
 	private String invalidEmail, notFoundEmail, existingEmail, firstName, lastName, password;
 
 	@Parameters("browser")
@@ -34,7 +34,7 @@ public class Level_07_Switch_Page extends BaseTest {
 	public void beforeClass(String browserName) {
 		driver = getDriverBrowser(browserName);
 
-		homePage = PageGeneratorManager.getHomePage(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 
 		existingEmail = "abc" + genarateRanomNumber() + "@mail.vn";
 		// existingEmail = "abc143@mail.vn";
@@ -49,7 +49,7 @@ public class Level_07_Switch_Page extends BaseTest {
 
 		System.out.println("Register - Step 01: Click to Register link");
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		System.out.println("Register - Step 02: Input to required fields");
 		registerPage.inputToFirstNameTextbox(firstName);
