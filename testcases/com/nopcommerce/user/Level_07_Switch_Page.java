@@ -73,7 +73,7 @@ public class Level_07_Switch_Page extends BaseTest {
 
 		loginPage = homePage.clickToLoginLink();
 
-		loginPage.inputToEmailTextbox(existingEmail);
+		loginPage.inputToEmailTextbox("TestAuto2011@gmail.com");
 		loginPage.inputToPasswordTextbox(password);
 
 		homePage = loginPage.clickToLoginButton();
