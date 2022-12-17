@@ -8,7 +8,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.liveGuru.*;
+import pageObjects.liveGuru.user.*;
 
 public class User_01_Register extends BaseTest {
 	private WebDriver driver;

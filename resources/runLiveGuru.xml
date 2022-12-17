@@ -3,7 +3,7 @@
 	<test name="Run on Chrome">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="com.liveguru.user.User_01_Register" />
+			<class name="com.liveguru.user.Level_10_Register" />
 		</classes>
 	</test>
 	<!-- Test -->
