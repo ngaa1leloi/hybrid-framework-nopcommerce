@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite parallel="false" name="NopCommerce">
+<suite parallel="false" name="JQuery">
 	<test name="Run on Chrome">
-		<parameter name="browser" value="firefox" />
-		<parameter name="url" value="https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/" />
+		<parameter name="browser" value="chrome" />
+		<parameter name="url" value="https://blueimp.github.io/jQuery-File-Upload/" />
 		<classes>
-			<class name="com.jquery.datatable.Level_10_DataTable_DataGrid" />
+			<class name="com.jquery.uploadfile.Level_11_Upload_File" />
 		</classes>
 	</test>
-	<!-- Test -->
-	<!--
+	
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox" />
+		<parameter name="url" value="https://blueimp.github.io/jQuery-File-Upload/" />
 		<classes>
-			<class name="com.nopcommerce.user.Level_06_Page_Generator_Manager_I" />
+			<class name="com.jquery.uploadfile.Level_11_Upload_File" />
 		</classes>
 	</test>
 	<test name="Run on Edge">
 		<parameter name="browser" value="edge" />
+		<parameter name="url" value="https://blueimp.github.io/jQuery-File-Upload/" />
 		<classes>
-			<class name="com.nopcommerce.user.Level_03_Page_Object_02_Login" />
-		</classhttps://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/es>
-	</test>
-	<test name="Run on Coc Coc">
-		<parameter name="browser" value="coccoc" />
-		<classes>
-			<class name="com.nopcommerce.user.Level_03_Page_Object_02_Login" />
+			<class name="com.jquery.uploadfile.Level_11_Upload_File" />
 		</classes>
-	</test>-->
-</suite> <!-- Suite -->
+	</test>
+	
+</suite> 

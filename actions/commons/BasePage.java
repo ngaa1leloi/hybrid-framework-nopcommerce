@@ -389,11 +389,15 @@ public class BasePage {
 		boolean status = (boolean) jsExecutor.executeScript(
 				"return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0",
 				getWebElement(driver, locatorType));
-		if (status) {
-			return true;
-		} else {
-			return false;
-		}
+		return status;
+	}
+
+	public boolean isImageLoaded(WebDriver driver, String locatorType, String... dynamicValues) {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		boolean status = (boolean) jsExecutor.executeScript(
+				"return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0",
+				getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)));
+		return status;
 	}
 
 	public void waitForElementVisible(WebDriver driver, String locatorType) {
@@ -443,6 +447,16 @@ public class BasePage {
 		WebDriverWait explicitWait = new WebDriverWait(driver, longTimeout);
 		explicitWait.until(
 				ExpectedConditions.elementToBeClickable(getByLocator(getDynamicXpath(locatorType, dynamicValues))));
+	}
+
+	public void uploadMultipleFiles(WebDriver driver, String fileInputLocator, String... fileNames) {
+		String fullFileName = "";
+		for (String file : fileNames) {
+			fullFileName += GlobalConstants.UPLOAD_FILE + file + "\n";
+		}
+		fullFileName = fullFileName.trim();
+		getWebElement(driver, fileInputLocator).sendKeys(fullFileName);
+		
 	}
 
 	public BasePage openPageAtMyAccountArea(WebDriver driver, String pageName) {
