@@ -2,6 +2,7 @@ package commons;
 
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -23,9 +24,13 @@ import pageObjects.nopCommerce.user.UserMyProductReviewPageObject;
 import pageObjects.nopCommerce.user.UserRewardPointPageObject;
 import pageUIs.nopComerce.user.BasePageUI;
 
+/**
+ * @author Admin
+ *
+ */
 public class BasePage {
-	private long longTimeout = 30;
-	private long shortTimeout = 5;
+	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
+	private long shortTimeout = GlobalConstants.SHORT_TIMEOUT;
 
 	public static BasePage getBasePageObject() {
 		return new BasePage();
@@ -433,6 +438,35 @@ public class BasePage {
 				.invisibilityOfElementLocated(getByLocator(getDynamicXpath(locatorType, dynamicValues))));
 	}
 
+	/*
+	 * Wait for element undisplayed in DOM or not in DOM
+	 */
+
+	public void waitForElementUndisplayed(WebDriver driver, String locatorType) {
+		WebDriverWait explicitWait = new WebDriverWait(driver, shortTimeout);
+		overrideGlobalTimeout(driver, shortTimeout);
+		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(locatorType)));
+		overrideGlobalTimeout(driver, longTimeout);
+	}
+	
+	public void overrideGlobalTimeout(WebDriver driver, long timeout) {
+		driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
+	}
+	
+	public boolean isElementUndisplayed(WebDriver driver, String locatorType) {
+		overrideGlobalTimeout(driver, shortTimeout);
+		List<WebElement> elements = getListWebElement(driver, locatorType);
+		overrideGlobalTimeout(driver, longTimeout);
+		if(elements.size()==0) {
+			return true;
+		}else if(elements.size()>0 && !elements.get(0).isDisplayed()) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+
 	public void waitForALlElementInvisible(WebDriver driver, String xpathLocator) {
 		WebDriverWait explicitWait = new WebDriverWait(driver, longTimeout);
 		explicitWait.until(ExpectedConditions.invisibilityOfAllElements(getListWebElement(driver, xpathLocator)));
@@ -456,7 +490,7 @@ public class BasePage {
 		}
 		fullFileName = fullFileName.trim();
 		getWebElement(driver, fileInputLocator).sendKeys(fullFileName);
-		
+
 	}
 
 	public BasePage openPageAtMyAccountArea(WebDriver driver, String pageName) {

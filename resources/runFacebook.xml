@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Facebook">
+	<listeners>
+		
+	</listeners>
+	
+	<test name="Run on Chrome">
+		<parameter name="browser" value="chrome" />
+		<parameter name="url" value="https://www.facebook.com/" />
+		<classes>
+			<class name="com.facebook.register.Level_13_Element_Undisplayed" />
+		</classes>
+	</test>
+
+	
+
+</suite> 
